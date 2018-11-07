@@ -17,7 +17,10 @@ RUN apk update ; apk add \
 	perl-json \
 	perl-libwww
 
-COPY ./cgi-bin /usr/local/apache2/cgi-bin/
+COPY ./cgi-bin/authclient.cgi /usr/local/apache2/cgi-bin/
+COPY ./cgi-bin/AuthConfig.pm /usr/local/lib/perl5/site_perl/
+
+
 #ADD https://raw.githubusercontent.com/MG-RAST/authServer/master/client/authclient.cgi /usr/local/apache2/cgi-bin/authclient.cgi
 #RUN chmod 755 /usr/local/apache2/cgi-bin/authclient.cgi
 
