@@ -2,11 +2,6 @@ package AuthConfig;
 
 require Exporter;
 
-# this is its own url
-use constant SELF_URL => $ENV{'SELF_URL'};
-
-
-print STDERR "SELF_URL: ".$SELF_URL."\n";
 
 # This is the base url of the authServer, cgi-bin directory
 use constant AUTH_URL => $ENV{'AUTH_URL'};
