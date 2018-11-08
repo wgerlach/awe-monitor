@@ -2,7 +2,8 @@
 <html>
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>AWE - Home</title>
+    <meta charset="UTF-8">
+    <title>AWE monitor</title>
     <link rel="icon" href="images/awe-lg.png" type="image/x-icon">
     <script src="js/config.js"></script>
     <script src="Retina/js/jquery.min.js"></script>
@@ -25,6 +26,7 @@
 
     window.logout = function () {
 	jQuery.removeCookie('AuthWebSession', { path: '/' });
+    //console.log("window.location.href: "+window.location.href)
 	window.location.reload();
     }
 var user = jQuery.cookie('AuthWebSession');
@@ -37,12 +39,14 @@ jQuery( document ).ready(function(){
     stm.init({});
     Retina.init({});
 	    
-    var page = Retina.cgiParam("page") || "home";	
-    document.title = "AWE - "+page.charAt(0).toUpperCase()+page.substr(1);
-    document.getElementById('pageTitle').innerHTML = page.charAt(0).toUpperCase()+page.substr(1);
+    var page = Retina.cgiParam("page") || "home";
+    var page_normalized =page.charAt(0).toUpperCase()+page.substr(1)
+    document.title = "AWE - "+page_normalized;
+    document.getElementById('pageTitle').innerHTML = page_normalized;
     
     Retina.load_widget("awe_"+page).then( function() {
 	window.awep = Retina.Widget.create('awe_'+page, { target: document.getElementById('mainview') });
+    
 	if (RetinaConfig.useOAuthServer) {
 	    stm.user = JSON.parse(user);
 	    stm.user.firstname = stm.user.name;
@@ -74,6 +78,7 @@ jQuery( document ).ready(function(){
 	}
     });
 });
+
 </script>
   </head>
 
@@ -86,19 +91,19 @@ jQuery( document ).ready(function(){
 	  <div class="nav-collapse collapse" style="float: left; margin-top: 8px;">
 	    <ul class="nav">
 	      <li class="">
-		<a href="main.html">Home</a>
+		<a href="index.html">Home</a>
 	      </li>
 	      <li class="">
-		<a href="main.html?page=monitor">Status Monitor</a>
+		<a href="index.html?page=monitor">Status Monitor</a>
 	      </li>
 	      <li class="">
-		<a href="main.html?page=clientgroups">Clientgroups</a>
+		<a href="index.html?page=clientgroups">Clientgroups</a>
 	      </li>
 	      <li class="">
-		<a href="main.html?page=panel">Alert Panel</a>
+		<a href="index.html?page=panel">Alert Panel</a>
 	      </li>
 	      <li class="">
-		<a href="main.html?page=top">top</a>
+		<a href="index.html?page=top">top</a>
 	      </li>
 	    </ul>
 	  </div>
