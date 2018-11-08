@@ -23,7 +23,11 @@ use JSON;
 use LWP::UserAgent;
 use URI::Escape;
 
-use AuthConfig;
+use AuthConfig \%ENV;
+
+
+print STDERR "authclient.cgi SELF_URL: ".$ENV{'SELF_URL'}."\n";
+
 
 my $json = new JSON;
 my $cgi = new CGI();
@@ -41,7 +45,7 @@ my $dialog_url = $settings->{dialog_url};
 my $token_url = $settings->{token_url};
 my $data_url = $settings->{data_url};
 
-my $my_url = APPLICATION_CGI_URL."/authclient.cgi";
+my $my_url = SELF_URL."/cgi-bin/authclient.cgi";
 
 my $code = $cgi->param('code');
 
@@ -61,6 +65,6 @@ my $cookie = CGI::Cookie->new( -name    => COOKIE_NAME,
 			       -value   => $response,
 			       -expires => COOKIE_EXPIRATION );
 
-print $cgi->redirect(-uri => APPLICATION_URL, -cookie => $cookie);
+print $cgi->redirect(-uri => AUTH_CLIENT_URL, -cookie => $cookie);
 
 exit 0;
