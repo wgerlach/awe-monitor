@@ -5,20 +5,19 @@
 # nginx:  docker run -ti --rm --name awe-monitor -p 8085:80 -v `pwd`/config.js:/usr/share/nginx/html/js/config.js mgrast/awe-monitor
 
 
-# needed: /usr/local/apache2/cgi-bin/AuthConfig.pm
-
 FROM httpd:2.4-alpine
 
-
-COPY . /usr/local/apache2/htdocs/
-RUN mv /usr/local/apache2/htdocs/httpd.conf /usr/local/apache2/conf
 RUN apk update ; apk add \
 	perl-cgi \
 	perl-json \
 	perl-libwww
 
+
+COPY . /usr/local/apache2/htdocs/
+RUN mv /usr/local/apache2/htdocs/httpd.conf /usr/local/apache2/conf
+
 COPY ./cgi-bin/authclient.cgi /usr/local/apache2/cgi-bin/
-COPY ./cgi-bin/AuthConfig.pm /usr/local/lib/perl5/site_perl/
+COPY ./lib/AuthConfig.pm /usr/local/lib/perl5/site_perl/
 
 
 #ADD https://raw.githubusercontent.com/MG-RAST/authServer/master/client/authclient.cgi /usr/local/apache2/cgi-bin/authclient.cgi
