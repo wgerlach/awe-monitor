@@ -14,7 +14,7 @@
 #    admin - boolean whether the user is an admin
 #    token - the access token to be used for authentication against the authServer
 
-use strict;
+#use strict;
 use warnings;
 
 use CGI;
@@ -23,20 +23,22 @@ use JSON;
 use LWP::UserAgent;
 use URI::Escape;
 
+
 use AuthConfig \%ENV;
 
 
-print STDERR "authclient.cgi SELF_URL: ".$ENV{'SELF_URL'}."\n";
+#print STDERR "2) authclient.cgi SELF_URL: ".$ENV{'SELF_URL'}."\n";
+#print STDERR "3) authclient.cgi APPLICATION_NAME: ".AuthConfig::APPLICATION_NAME."\n";
 
 
 my $json = new JSON;
 my $cgi = new CGI();
 
-my $settings = { app_id => APPLICATION_NAME,
-		 app_secret => APPLICATION_SECRET,
-		 dialog_url => AUTH_URL.'/oAuth.cgi?action=dialog',
-		 token_url  => AUTH_URL.'/oAuth.cgi?action=token',
-		 data_url   => AUTH_URL.'/oAuth.cgi?action=data'
+my $settings = { app_id => AuthConfig::APPLICATION_NAME,
+		 app_secret => AuthConfig::APPLICATION_SECRET,
+		 dialog_url => AuthConfig::AUTH_URL.'/oAuth.cgi?action=dialog',
+		 token_url  => AuthConfig::AUTH_URL.'/oAuth.cgi?action=token',
+		 data_url   => AuthConfig::AUTH_URL.'/oAuth.cgi?action=data'
 		 };
 
 my $app_id = $settings->{app_id};
@@ -61,10 +63,10 @@ my $response = $json->decode($ua->get($call_url)->content);
 my $access_token = $response->{token};
 $call_url = $data_url . "&access_token=" . $access_token;
 $response = $ua->get($call_url)->content;
-my $cookie = CGI::Cookie->new( -name    => COOKIE_NAME,
+my $cookie = CGI::Cookie->new( -name    => AuthConfig::COOKIE_NAME,
 			       -value   => $response,
-			       -expires => COOKIE_EXPIRATION );
+			       -expires => AuthConfig::COOKIE_EXPIRATION );
 
-print $cgi->redirect(-uri => AUTH_CLIENT_URL, -cookie => $cookie);
+print $cgi->redirect(-uri => AuthConfig::AUTH_CLIENT_URL, -cookie => $cookie);
 
 exit 0;
