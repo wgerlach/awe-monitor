@@ -13,15 +13,18 @@ RUN apk update ; apk add \
 	perl-libwww
 
 
-COPY . /usr/local/apache2/htdocs/
-RUN mv /usr/local/apache2/htdocs/httpd.conf /usr/local/apache2/conf
+# www
+COPY www/ /usr/local/apache2/htdocs/
 
+# config
+COPY httpd.conf /usr/local/apache2/conf
+
+# cgi
 COPY ./cgi-bin/authclient.cgi /usr/local/apache2/cgi-bin/
+
+# lib
 COPY ./lib/AuthConfig.pm /usr/local/lib/perl5/site_perl/
 
-
-#ADD https://raw.githubusercontent.com/MG-RAST/authServer/master/client/authclient.cgi /usr/local/apache2/cgi-bin/authclient.cgi
-#RUN chmod 755 /usr/local/apache2/cgi-bin/authclient.cgi
 
 
 # nginx, but does not support cgi (required for auth client)
