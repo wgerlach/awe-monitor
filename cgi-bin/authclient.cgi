@@ -67,6 +67,6 @@ my $cookie = CGI::Cookie->new( -name    => AuthConfig::COOKIE_NAME,
 			       -value   => $response,
 			       -expires => AuthConfig::COOKIE_EXPIRATION );
 
-print $cgi->redirect(-uri => AuthConfig::AUTH_CLIENT_URL, -cookie => $cookie);
+print $cgi->redirect(-uri => AuthConfig::APPLICATION_URL, -cookie => $cookie);
 
 exit 0;
