@@ -1,4 +1,4 @@
-package ClientConfigAWE;
+package AuthConfig;
 
 require Exporter;
 
