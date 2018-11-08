@@ -14,7 +14,7 @@ use constant AUTH_URL => $ENV{'AUTH_URL'};
 # These values must correspond to what the app was registered with on the
 # application registration page of the authServer
 use constant APPLICATION_NAME   => $ENV{'APPLICATION_NAME'};
-use constant AUTH_CLIENT_URL    => $ENV{'AUTH_CLIENT_URL'};
+use constant APPLICATION_URL    => $ENV{'APPLICATION_URL'};
 use constant APPLICATION_SECRET => $ENV{'APPLICATION_SECRET'};
 
 # This is the name of the cookie the user information will be stored in
@@ -25,7 +25,7 @@ use constant COOKIE_EXPIRATION => '+2d';
 ### variables for back-wards compatibility:
 # This is the CGI directory of the app that contains authclient.cgi
 use constant APPLICATION_CGI_URL =>  $SELF_URL."/cgi-bin";
-use constant APPLICATION_URL    => $AUTH_CLIENT_URL;
+
 ###
 
 
