@@ -155,27 +155,27 @@
 			       var widget = Retina.WidgetInstances.awe_monitor[1];
 			       var d = data.data;
 			       var html = [ '<h4>Overview</h4><table class="table">' ];
-			       html.push('<tr><th colspan=2>clients</th><th>'+d.clients.total+'</th></tr>');
-			       html.push('<tr><td></td><td>busy</td><td>'+d.clients.busy+'</td></tr>');
-			       html.push('<tr><td></td><td>idle</td><td>'+d.clients.idle+'</td></tr>');
-			       html.push('<tr><td></td><td>suspended</td><td>'+d.clients.suspended+'</td></tr>');
+			       html.push('<tr><th colspan=2>clients</th><th>'+( d.clients.total ? d.clients.total : 0 ) +'</th></tr>');
+			       html.push('<tr><td></td><td>busy</td><td>'+( d.clients.busy ? d.clients.busy : 0 ) +'</td></tr>');
+			       html.push('<tr><td></td><td>idle</td><td>'+ ( d.clients.idle ? d.clients.idle : 0 ) +'</td></tr>');
+			       html.push('<tr><td></td><td>suspended</td><td>'+ ( d.clients.suspended ? d.clients.suspended : 0 ) +'</td></tr>');
 
-			       html.push('<tr><th colspan=2>jobs</th><th>'+d.jobs.total+'</th></tr>');
-			       html.push('<tr><td></td><td>active</td><td>'+d.jobs.active+'</td></tr>');
-			       html.push('<tr><td></td><td>suspended</td><td>'+d.jobs.suspended+'</td></tr>');
+			       html.push('<tr><th colspan=2>jobs</th><th>'+ ( d.jobs.total ? d.jobs.total : 0 ) +'</th></tr>');
+			       html.push('<tr><td></td><td>active</td><td>'+( d.jobs.active ? d.jobs.active : 0 )+'</td></tr>');
+			       html.push('<tr><td></td><td>suspended</td><td>'+ ( d.jobs.suspended ? d.jobs.suspended : 0 )+'</td></tr>');
 
-			       html.push('<tr><th colspan=2>tasks</th><th>'+d.tasks.total+'</th></tr>');
-			       html.push('<tr><td></td><td>completed</td><td>'+d.tasks.completed+'</td></tr>');
-			       html.push('<tr><td></td><td>failed</td><td>'+d.tasks.failed+'</td></tr>');
-			       html.push('<tr><td></td><td>in-progress</td><td>'+d.tasks['in-progress']+'</td></tr>');
-			       html.push('<tr><td></td><td>pending</td><td>'+d.tasks.pending+'</td></tr>');
-			       html.push('<tr><td></td><td>queuing</td><td>'+d.tasks.queuing+'</td></tr>');
-			       html.push('<tr><td></td><td>suspended</td><td>'+d.tasks.suspended+'</td></tr>');
+			       html.push('<tr><th colspan=2>tasks</th><th>'+ ( d.tasks.total ? d.tasks.total : 0 )+'</th></tr>');
+			       html.push('<tr><td></td><td>completed</td><td>'+ ( d.tasks.completed ? d.tasks.completed : 0 ) +'</td></tr>');
+			       html.push('<tr><td></td><td>failed</td><td>'+( d.tasks.failed ? d.tasks.failed : 0 )+'</td></tr>');
+			       html.push('<tr><td></td><td>in-progress</td><td>'+( d.tasks['in-progress'] ? d.tasks['in-progress'] : 0 ) +'</td></tr>');
+			       html.push('<tr><td></td><td>pending</td><td>'+ ( d.tasks.pending ? d.tasks.pending : 0 )+'</td></tr>');
+			       html.push('<tr><td></td><td>queuing</td><td>'+ ( d.tasks.queuing ? d.tasks.queuing : 0 )+'</td></tr>');
+			       html.push('<tr><td></td><td>suspended</td><td>'+( d.tasks.suspended ? d.tasks.suspended : 0 ) +'</td></tr>');
 
-			       html.push('<tr><th colspan=2>workunits</th><th>'+d.workunits.total+'</th></tr>');
-			       html.push('<tr><td></td><td>checkout</td><td>'+d.workunits.checkout+'</td></tr>');
-			       html.push('<tr><td></td><td>queuing</td><td>'+d.workunits.queuing+'</td></tr>');
-			       html.push('<tr><td></td><td>suspended</td><td>'+d.workunits.suspended+'</td></tr>');
+			       html.push('<tr><th colspan=2>workunits</th><th>'+( d.workunits.total ? d.workunits.total : 0 )+'</th></tr>');
+			       html.push('<tr><td></td><td>checkout</td><td>'+ ( d.workunits.checkout ? d.workunits.checkout: 0 )+'</td></tr>');
+			       html.push('<tr><td></td><td>queuing</td><td>'+ ( d.workunits.queuing ? d.workunits.queuing : 0)+'</td></tr>');
+			       html.push('<tr><td></td><td>suspended</td><td>'+( d.workunits.suspended ? d.workunits.suspended : 0 )+'</td></tr>');
 
 			       html.push('</table>');
 			       
