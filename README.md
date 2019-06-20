@@ -3,9 +3,9 @@
 Monitor for the AWE server
 
 
-##Examples
+## Examples
 
-###Start awe-monitor without authentication
+### Start awe-monitor without authentication
 
 (Make sure that config_noauth.js uses the correct address and port number of your AWE server instance)
 
