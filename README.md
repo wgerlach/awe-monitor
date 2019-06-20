@@ -1,8 +1,13 @@
+# AWE monitor
+
+Monitor for the AWE server
 
 
-Example: Start awe-monitor without authentication
+##Examples
 
-(Make sure that config_noauth.js use the correct address and port number of your AWE server instance)
+###Start awe-monitor without authentication
+
+(Make sure that config_noauth.js uses the correct address and port number of your AWE server instance)
 
 ```bash
 docker run -ti --rm --name awe-monitor  \
