@@ -156,21 +156,35 @@
 			       var d = data.data;
 			       var html = [ '<h4>Overview</h4><table class="table">' ];
 			       html.push('<tr><th colspan=2>clients</th><th>'+( d.clients.total ? d.clients.total : 0 ) +'</th></tr>');
-			       html.push('<tr><td></td><td>busy</td><td>'+( d.clients.busy ? d.clients.busy : 0 ) +'</td></tr>');
-			       html.push('<tr><td></td><td>idle</td><td>'+ ( d.clients.idle ? d.clients.idle : 0 ) +'</td></tr>');
+			       html.push('<tr><td></td><td>unhealthy</td><td>'+( d.clients.unhealthy ? d.clients.unhealthy : 0 ) +'</td></tr>');
 			       html.push('<tr><td></td><td>suspended</td><td>'+ ( d.clients.suspended ? d.clients.suspended : 0 ) +'</td></tr>');
+			       html.push('<tr><td></td><td>busy</td><td>'+ ( d.clients.busy ? d.clients.busy : 0 ) +'</td></tr>');
+			       html.push('<tr><td></td><td>online</td><td>'+ ( d.clients.online ? d.clients.online : 0 ) +'</td></tr>');
+                   html.push('<tr><td></td><td>offline</td><td>'+ ( d.clients.offline ? d.clients.offline : 0 ) +'</td></tr>');
 
 			       html.push('<tr><th colspan=2>jobs</th><th>'+ ( d.jobs.total ? d.jobs.total : 0 ) +'</th></tr>');
-			       html.push('<tr><td></td><td>active</td><td>'+( d.jobs.active ? d.jobs.active : 0 )+'</td></tr>');
-			       html.push('<tr><td></td><td>suspended</td><td>'+ ( d.jobs.suspended ? d.jobs.suspended : 0 )+'</td></tr>');
+			       html.push('<tr><td></td><td>init</td><td>'+( d.jobs.init ? d.jobs.init : 0 )+'</td></tr>');
+			       html.push('<tr><td></td><td>queuing</td><td>'+ ( d.jobs.queuing ? d.jobs.queuing : 0 )+'</td></tr>');
+                   html.push('<tr><td></td><td>queued</td><td>'+ ( d.jobs.queued ? d.jobs.queued : 0 )+'</td></tr>');
+                   html.push('<tr><td></td><td>in-progress</td><td>'+ ( d.jobs.in-progress ? d.jobs.in-progress : 0 )+'</td></tr>');
+                   html.push('<tr><td></td><td>completed</td><td>'+ ( d.jobs.completed ? d.jobs.completed : 0 )+'</td></tr>');
+                   html.push('<tr><td></td><td>suspend</td><td>'+ ( d.jobs.suspend ? d.jobs.suspend : 0 )+'</td></tr>');
+                   html.push('<tr><td></td><td>failed-permanent</td><td>'+ ( d.jobs.failed-permanent ? d.jobs.failed-permanent : 0 )+'</td></tr>');
+                   html.push('<tr><td></td><td>deleted</td><td>'+ ( d.jobs.deleted ? d.jobs.deleted : 0 )+'</td></tr>');
+                   html.push('<tr><td></td><td>unknown</td><td>'+ ( d.jobs.unknown ? d.jobs.unknown : 0 )+'</td></tr>');
 
 			       html.push('<tr><th colspan=2>tasks</th><th>'+ ( d.tasks.total ? d.tasks.total : 0 )+'</th></tr>');
-			       html.push('<tr><td></td><td>completed</td><td>'+ ( d.tasks.completed ? d.tasks.completed : 0 ) +'</td></tr>');
-			       html.push('<tr><td></td><td>failed</td><td>'+( d.tasks.failed ? d.tasks.failed : 0 )+'</td></tr>');
-			       html.push('<tr><td></td><td>in-progress</td><td>'+( d.tasks['in-progress'] ? d.tasks['in-progress'] : 0 ) +'</td></tr>');
-			       html.push('<tr><td></td><td>pending</td><td>'+ ( d.tasks.pending ? d.tasks.pending : 0 )+'</td></tr>');
-			       html.push('<tr><td></td><td>queuing</td><td>'+ ( d.tasks.queuing ? d.tasks.queuing : 0 )+'</td></tr>');
-			       html.push('<tr><td></td><td>suspended</td><td>'+( d.tasks.suspended ? d.tasks.suspended : 0 ) +'</td></tr>');
+			       html.push('<tr><td></td><td>init</td><td>'+ ( d.tasks.init ? d.tasks.init : 0 ) +'</td></tr>');
+			       html.push('<tr><td></td><td>pending</td><td>'+ ( d.tasks.pending ? d.tasks.pending : 0 ) +'</td></tr>');
+                   html.push('<tr><td></td><td>ready</td><td>'+ ( d.tasks.ready ? d.tasks.ready : 0 ) +'</td></tr>');
+                   html.push('<tr><td></td><td>queued</td><td>'+ ( d.tasks.queued ? d.tasks.queued : 0 ) +'</td></tr>');
+                   html.push('<tr><td></td><td>in-progress</td><td>'+ ( d.tasks.in-progress ? d.tasks.in-progress : 0 ) +'</td></tr>');
+                   html.push('<tr><td></td><td>suspend</td><td>'+ ( d.tasks.suspend ? d.tasks.suspend : 0 ) +'</td></tr>');
+                   html.push('<tr><td></td><td>failed-permanent</td><td>'+ ( d.tasks.failed-permanent ? d.tasks.failed-permanent : 0 ) +'</td></tr>');
+                   html.push('<tr><td></td><td>completed</td><td>'+ ( d.tasks.completed ? d.tasks.completed : 0 ) +'</td></tr>');
+                   html.push('<tr><td></td><td>unknown</td><td>'+ ( d.tasks.unknown ? d.tasks.unknown : 0 ) +'</td></tr>');
+                   
+                   
 
 			       html.push('<tr><th colspan=2>workunits</th><th>'+( d.workunits.total ? d.workunits.total : 0 )+'</th></tr>');
 			       html.push('<tr><td></td><td>checkout</td><td>'+ ( d.workunits.checkout ? d.workunits.checkout: 0 )+'</td></tr>');
